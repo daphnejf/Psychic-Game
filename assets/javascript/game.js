@@ -12,25 +12,27 @@ document.onkeyup=function(event) {
     var guessesText = document.getElementById("guesses-text");
 
     var userGuess = event.key;
-    userGuess.textContent = event.key;
+
+    for (var i = 0; i < guesses.length; i++) {
+        if (userGuess === guesses[i]) {
+            alert("You already used that letter.")
+        }
+    }
     
     var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
     if (userGuess === computerGuess) {
         wins++; 
         guesses = [];
-        losses = 0;
         left = 9;
        }
     else {
-        losses++;
         left--;
         guesses.push(event.key);
         
         if (left === 0) {
-        wins = 0;
+        losses++;
         guesses = [];
-        losses = 0;
         left = 9;
     }
     }
