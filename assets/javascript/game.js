@@ -14,7 +14,6 @@ document.onkeyup=function(event) {
     var userGuess = event.key;
     
     var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-    console.log('CG',computerGuess)
 
     if (userGuess === computerGuess) {
         wins++; 
